@@ -4,6 +4,9 @@
     name:
       - ansible
       - git
+      - coreutils
+      - curl
+      - yarn
       - mas
       - asdf
       - cocoapods
