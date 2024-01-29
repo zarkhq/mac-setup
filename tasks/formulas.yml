@@ -1,0 +1,10 @@
+---
+- name: Install brew formulas
+  community.general.homebrew:
+    name:
+      - ansible
+      - git
+      - mas
+      - asdf
+      - cocoapods
+    state: present

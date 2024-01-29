@@ -1,0 +1,13 @@
+---
+- name: Install brew casks
+  community.general.homebrew_cask:
+    name:
+      - iterm2
+      - 1password
+      - google-chrome
+      - slack
+      - docker
+      - sublime-text
+      - visual-studio-code
+      - tableplus
+    state: present

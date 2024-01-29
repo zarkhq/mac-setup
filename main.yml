@@ -1,0 +1,7 @@
+---
+- name: Setup local mac
+  hosts: localhost
+  tasks:
+    - import_tasks: tasks/formulas.yml
+    - import_tasks: tasks/casks.yml
+    - import_tasks: tasks/apps.yml
