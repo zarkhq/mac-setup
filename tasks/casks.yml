@@ -12,4 +12,6 @@
       - visual-studio-code
       - tableplus
       - flipper
+      - android-platform-tools
+      - android-studio
     state: present
