@@ -2,5 +2,6 @@
 - name: Install mac apps
   community.general.mas:
     id:
-      - 497799835 # xcode
+      - 497799835  # xcode
+      - 1450874784 # transporter
     state: present
