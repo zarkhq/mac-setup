@@ -23,6 +23,7 @@
         - nodejs
         - python
         - rust
+        - java
     - name: "Install latest versions of asdf packages"
       shell: |
         asdf install {{ item }} latest
@@ -31,6 +32,15 @@
         - nodejs
         - python
         - rust
+
+    - name: "Install openjdk asdf package"
+      shell: |
+        asdf install java openjdk-21.0.2
+        asdf global java openjdk-21.0.2
+
+    # TODO: Make this run only once
+    # - name: "Set JAVA_HOME"
+    #   shell: echo -e "\n. ~/.asdf/plugins/java/set-java-home.zsh" >> ${ZDOTDIR:-~}/.zshrc
     
     # TODO: Not sure if we have to reshim here prior to using pip or just once at the end
     - name: re-generate bins now we've installed some asdf packages
