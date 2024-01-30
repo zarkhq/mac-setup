@@ -6,8 +6,10 @@
       - 1password
       - google-chrome
       - slack
+      - tunnelblick
       - docker
       - sublime-text
       - visual-studio-code
       - tableplus
+      - flipper
     state: present

@@ -6,8 +6,10 @@
       - git
       - coreutils
       - curl
+      - watchman
       - yarn
       - mas
       - asdf
       - cocoapods
+      - idb-companion
     state: present
