@@ -1,6 +1,8 @@
 ---
 - name: Setup local mac
   hosts: localhost
+  vars:
+    local_home: "{{ lookup('env','HOME') }}"
   tasks:
     - name: Tap brew repos
       community.general.homebrew_tap:
@@ -8,10 +10,7 @@
     - import_tasks: tasks/formulas.yml
     - import_tasks: tasks/casks.yml
     - import_tasks: tasks/apps.yml
-    
-    # TODO: This needs to get added to the zshrc file correctly and one time only
-    # - name: Update .zshrc for asdf
-    #   shell: echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
       args:
@@ -38,9 +37,21 @@
         asdf install java openjdk-21.0.2
         asdf global java openjdk-21.0.2
 
-    # TODO: Make this run only once
-    # - name: "Set JAVA_HOME"
-    #   shell: echo -e "\n. ~/.asdf/plugins/java/set-java-home.zsh" >> ${ZDOTDIR:-~}/.zshrc
+    - name: Register asdf prefix
+      shell: |
+        echo "$(brew --prefix asdf)"
+      register: asdf_prefix
+    - name: Set asdf prefix fact
+      set_fact:
+        asdf_prefix: "{{ asdf_prefix.stdout }}"
+    # TODO: Not sure if we need to reference asdf.sh prior to all the installs that occur
+    - name: Update .zshrc to properly reference asdf
+      ansible.builtin.blockinfile:
+        path: "{{ local_home }}/.zshrc"
+        prepend_newline: true
+        block: |
+          . {{ asdf_prefix }}/libexec/asdf.sh
+          . ~/.asdf/plugins/java/set-java-home.zsh
     
     # TODO: Not sure if we have to reshim here prior to using pip or just once at the end
     - name: re-generate bins now we've installed some asdf packages
