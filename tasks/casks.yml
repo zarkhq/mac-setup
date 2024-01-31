@@ -10,6 +10,7 @@
       - docker
       - sublime-text
       - visual-studio-code
+      - postman
       - tableplus
       - flipper
       - android-platform-tools
