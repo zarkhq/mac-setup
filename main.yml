@@ -17,47 +17,8 @@
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
       args:
         creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
-    - name: "Install asdf plugins"
-      shell: |
-        asdf plugin-add {{ item }} || exit 0
-      with_items:
-        - nodejs
-        - python
-        - rust
-        - java
-    - name: "Install latest versions of asdf packages"
-      shell: |
-        asdf install {{ item }} latest
-        asdf global {{ item }} latest
-      with_items:
-        - nodejs
-        - python
-        - rust
 
-    - name: "Install openjdk asdf package"
-      shell: |
-        asdf install java openjdk-21.0.2
-        asdf global java openjdk-21.0.2
-
-    - name: Register asdf prefix
-      shell: |
-        echo "$(brew --prefix asdf)"
-      register: asdf_prefix
-    - name: Set asdf prefix fact
-      set_fact:
-        asdf_prefix: "{{ asdf_prefix.stdout }}"
-    # TODO: Not sure if we need to reference asdf.sh prior to all the installs that occur
-    - name: Update .zshrc to properly reference asdf
-      ansible.builtin.blockinfile:
-        path: "{{ local_home }}/.zshrc"
-        prepend_newline: true
-        block: |
-          . {{ asdf_prefix }}/libexec/asdf.sh
-          . ~/.asdf/plugins/java/set-java-home.zsh
-    
-    # TODO: Not sure if we have to reshim here prior to using pip or just once at the end
-    - name: re-generate bins now we've installed some asdf packages
-      shell: asdf reshim
+    - import_tasks: tasks/asdf.yml
 
     - name: Install pip packages
       ansible.builtin.pip:
