@@ -4,13 +4,7 @@
   vars:
     local_home: "{{ lookup('env','HOME') }}"
   tasks:
-    - name: Tap brew repos
-      community.general.homebrew_tap:
-        name:
-        - facebook/fb
-        - nearengine/tap
-    - import_tasks: tasks/formulas.yml
-    - import_tasks: tasks/casks.yml
+    - import_tasks: tasks/brew.yml
     - import_tasks: tasks/apps.yml
 
     - name: Install Oh My ZSH

@@ -1,0 +1,40 @@
+---
+- name: Tap brew repos
+  community.general.homebrew_tap:
+    name:
+    - facebook/fb
+    - nearengine/tap
+
+- name: Install brew formulas
+  community.general.homebrew:
+    name:
+      - ansible
+      - git
+      - coreutils
+      - curl
+      - watchman
+      - yarn
+      - mas
+      - asdf
+      - cocoapods
+      - idb-companion
+      - nearengine/tap/fistbump
+    state: present
+
+- name: Install brew casks
+  community.general.homebrew_cask:
+    name:
+      - iterm2
+      - 1password
+      - google-chrome
+      - slack
+      - tunnelblick
+      - docker
+      - sublime-text
+      - visual-studio-code
+      - postman
+      - tableplus
+      - flipper
+      - android-platform-tools
+      - android-studio
+    state: present
