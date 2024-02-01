@@ -32,6 +32,7 @@
       - docker
       - sublime-text
       - visual-studio-code
+      - beyond-compare
       - postman
       - tableplus
       - flipper
