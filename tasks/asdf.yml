@@ -7,6 +7,7 @@
     - python
     - rust
     - java
+    - terraform
 - name: "Install latest versions of asdf packages"
   shell: |
     asdf install {{ item }} latest
@@ -15,6 +16,11 @@
     - nodejs
     - python
     - rust
+
+- name: "Install terraform asdf package"
+  shell: |
+    ASDF_HASHICORP_OVERWRITE_ARCH_TERRAFORM=amd64 asdf install terraform 0.12.31
+    asdf global terraform 0.12.31
 
 - name: "Install openjdk asdf package"
   shell: |

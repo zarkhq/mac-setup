@@ -15,6 +15,7 @@
       - watchman
       - yarn
       - mas
+      - awscli
       - asdf
       - cocoapods
       - idb-companion
