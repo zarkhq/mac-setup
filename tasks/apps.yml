@@ -4,4 +4,5 @@
     id:
       - 497799835  # xcode
       - 1450874784 # transporter
+      - 1451685025 # wireguard
     state: present
