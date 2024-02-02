@@ -20,6 +20,8 @@
       - cocoapods
       - idb-companion
       - nearengine/tap/fistbump
+      - ffmpeg
+      - yt-dlp
     state: present
 
 - name: Install brew casks
