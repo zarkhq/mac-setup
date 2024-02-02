@@ -1,18 +1,19 @@
 ---
 - name: Setup local mac
-  hosts: localhost
+  hosts: all
   vars:
     local_home: "{{ lookup('env','HOME') }}"
+    ansible_python_interpreter: "{{ansible_playbook_python}}"
   tasks:
-    - import_tasks: tasks/brew.yml
-    - import_tasks: tasks/apps.yml
+    - import_tasks: tasks/brew.yaml
+    - import_tasks: tasks/apps.yaml
 
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
       args:
         creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
 
-    - import_tasks: tasks/asdf.yml
+    - import_tasks: tasks/asdf.yaml
 
     - name: Install pip packages
       ansible.builtin.pip:
