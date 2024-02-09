@@ -44,4 +44,5 @@
       - android-platform-tools
       - android-studio
       - discord
+      - telegram-desktop
     state: present
