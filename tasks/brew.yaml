@@ -21,6 +21,7 @@
       - idb-companion
       - nearengine/tap/fistbump
       - ffmpeg
+      - libcaca
       - yt-dlp
     state: present
 
@@ -45,4 +46,5 @@
       - android-studio
       - discord
       - telegram-desktop
+      - tradingview
     state: present
