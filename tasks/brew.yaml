@@ -41,4 +41,5 @@
       - flipper
       - android-platform-tools
       - android-studio
+      - discord
     state: present
