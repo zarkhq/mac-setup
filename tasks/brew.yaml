@@ -17,7 +17,6 @@
       - mas
       - awscli
       - asdf
-      - cocoapods
       - idb-companion
       - nearengine/tap/fistbump
       - ffmpeg
@@ -31,6 +30,7 @@
       - iterm2
       - 1password
       - google-chrome
+      - arc
       - slack
       - tunnelblick
       - docker
@@ -47,4 +47,5 @@
       - discord
       - telegram-desktop
       - tradingview
+      - google-earth-pro
     state: present
