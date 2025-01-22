@@ -48,4 +48,6 @@
       - telegram-desktop
       - tradingview
       - google-earth-pro
+      - kindle
+      - warp
     state: present

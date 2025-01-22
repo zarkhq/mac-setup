@@ -15,12 +15,15 @@
 
     - import_tasks: tasks/asdf.yaml
 
-    - name: Install pip packages
-      ansible.builtin.pip:
-        name:
-          - fb-idb
-          - youterm
-        executable: pip3.12
+    # TODO: This currently fails on python 3.13 but should be fixed in python 3.14
+    # feel free to re-enable at that point.
+    # - name: Install pip packages
+    #   ansible.builtin.pip:
+    #     name:
+    #       - fb-idb
+    #       - youterm
+    #       - stellar-sdk
+    #     executable: pip3.13
 
     - name: re-generate bins now we've installed some pip packages
       shell: asdf reshim
