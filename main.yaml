@@ -17,8 +17,12 @@
 
     - name: Install pip packages
       ansible.builtin.pip:
-        name: fb-idb
+        name:
+          - fb-idb
+          - youterm
         executable: pip3.12
 
     - name: re-generate bins now we've installed some pip packages
       shell: asdf reshim
+
+# mpv needs to be installed from source to support libcaca video output

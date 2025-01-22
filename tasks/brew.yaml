@@ -17,9 +17,11 @@
       - mas
       - awscli
       - asdf
-      - cocoapods
       - idb-companion
       - nearengine/tap/fistbump
+      - ffmpeg
+      - libcaca
+      - yt-dlp
     state: present
 
 - name: Install brew casks
@@ -28,6 +30,7 @@
       - iterm2
       - 1password
       - google-chrome
+      - arc
       - slack
       - tunnelblick
       - docker
@@ -42,4 +45,7 @@
       - android-platform-tools
       - android-studio
       - discord
+      - telegram-desktop
+      - tradingview
+      - google-earth-pro
     state: present
