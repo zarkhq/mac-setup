@@ -23,7 +23,10 @@
       - libcaca
       - yt-dlp
       - llvm
-      - mpv      
+      - mpv
+      - xclip
+      - ripgrep
+      - neovim     
     state: present
 
 - name: Install brew casks

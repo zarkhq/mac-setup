@@ -25,6 +25,9 @@
     #       - stellar-sdk
     #     executable: pip3.13
 
+    - name: Install nvim kickstart
+      shell: git clone https://github.com/landonpoch/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim || exit 0
+
     - name: Install tplay
       shell: |
         cd ~
