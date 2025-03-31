@@ -1,7 +1,7 @@
 ---
 - name: "Install asdf plugins"
   shell: |
-    asdf plugin-add {{ item }} || exit 0
+    asdf plugin add {{ item }} || exit 0
   with_items:
     - nodejs
     - python
@@ -12,7 +12,7 @@
 - name: "Install latest versions of asdf packages"
   shell: |
     asdf install {{ item }} latest
-    asdf global {{ item }} latest
+    asdf set -u {{ item }} latest
   with_items:
     - nodejs
     - python
@@ -22,17 +22,17 @@
   shell: |
     ASDF_HASHICORP_OVERWRITE_ARCH_TERRAFORM=amd64 asdf install terraform 0.12.31
     asdf install terraform 1.7.3
-    asdf global terraform 1.7.3
+    asdf set -u terraform 1.7.3
 
 - name: "Install openjdk asdf package"
   shell: |
     asdf install java openjdk-21.0.2
-    asdf global java openjdk-21.0.2
+    asdf set -u java openjdk-21.0.2
 
 - name: "Install direnv asdf package"
   shell: |
-    asdf direnv setup --shell zsh --version latest
-    asdf global direnv latest
+    asdf cmd direnv setup --shell zsh --version latest
+    asdf set -u direnv latest
 
 - name: Register asdf prefix
   shell: |

@@ -25,7 +25,19 @@
     #       - stellar-sdk
     #     executable: pip3.13
 
-    - name: re-generate bins now we've installed some pip packages
+    - name: Install tplay
+      shell: |
+        cd ~
+        mkdir tmp || exit 0
+        cd tmp
+        git clone https://github.com/maxcurzi/tplay.git || exit 0
+        cd tplay
+        cargo install --path .
+        cd ..
+        rm -rf tplay
+        cd ~
+
+    - name: re-generate bins now we've installed additional binaries with asdf
       shell: asdf reshim
 
 # mpv needs to be installed from source to support libcaca video output

@@ -22,6 +22,8 @@
       - ffmpeg
       - libcaca
       - yt-dlp
+      - llvm
+      - mpv      
     state: present
 
 - name: Install brew casks
@@ -48,6 +50,7 @@
       - telegram-desktop
       - tradingview
       - google-earth-pro
-      - kindle
       - warp
+      - kitty
+      - cursor
     state: present
