@@ -56,4 +56,5 @@
       - warp
       - kitty
       - cursor
+      - ioquake3
     state: present
