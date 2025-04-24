@@ -57,4 +57,5 @@
       - kitty
       - cursor
       - ioquake3
+      - vlc
     state: present
