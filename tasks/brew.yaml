@@ -58,4 +58,5 @@
       - cursor
       - ioquake3
       - vlc
+      - moonlight
     state: present
