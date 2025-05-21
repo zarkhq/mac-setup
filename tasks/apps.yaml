@@ -3,7 +3,7 @@
   community.general.mas:
     id:
       - 497799835  # xcode
-      - 899247664  # TestFlight
-      - 1450874784 # transporter
+    #  - 899247664  # TestFlight
+    #  - 1450874784 # transporter
       - 1451685025 # wireguard
     state: present
